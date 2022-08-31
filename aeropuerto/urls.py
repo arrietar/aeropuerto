@@ -20,7 +20,15 @@ from aeropuerto_app.views import *
 
 router = routers.DefaultRouter()
 router.register('base', Base_view, basename='base')
+router.register('piloto', Piloto_view, basename='piloto')
+router.register('avion', Avion_view, basename='avion')
+router.register('miembro', Miembro_view, basename='miembro')
+router.register('tripulacion', Tripulacion_view, basename='tripulacion')
+router.register('vuelo', Vuelo_view, basename='vuelo')
+router.register('usuario', Usuario_view, basename='usuario')
+
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('token', CustomAuthToken.as_view(), name='token'),
 ]
